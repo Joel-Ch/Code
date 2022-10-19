@@ -4,43 +4,26 @@
 int main(void)
 {
 
-    // Declare an integer array, an integer pointer and a looping variable
-    int *pData, SizeOfArray, i;
+    // Declare an integer array and an integer pointer
+    int *pData, SizeOfArray;
 
-    printf("Please enter the size of the array\n");
+    // Setting size of the array
+    printf("Please enter the desired array size\n");
     scanf("%i", &SizeOfArray);
 
     // Using calloc (same approach malloc)
-    pData = calloc(SizeOfArray, sizeof(int));
+    pData = calloc ( SizeOfArray , sizeof (int));
 
-
-    if (pData == NULL)
+    if ( pData == NULL)
     {
-        printf("\nMemory could not be allocated - terminating");
-        return -1; // Use minus one as we did not exit sucesfully
+        printf ("\nMemory could not be allocated - terminating");
+        return -1;  // Use minus one as we did not exit sucesfully
     }
 
-    // We have our memory, make use of it here!
-
-    // Test if we got this far
-    printf("success?");
-    // NB we did not
-
-
-    // Set the values in the array
-    for (i = 0; i <= SizeOfArray; i++)
-    {
-        pData[i] = i;
-    }
-
-    // Print out all the values in the array
-    for (i = 0; i <= SizeOfArray; i++)
-    {
-        printf("Item %d contains value %d\n", i, pData[i]);
-    }
+     // We have our  memory, make use of it here!
 
     // Free up the allocated memoey
-    free(pData);
+    free (pData);
 
-    return 0; // Exit sucesfully
+    return 0;   // Exit sucesfully
 }
