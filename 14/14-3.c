@@ -26,15 +26,24 @@ int main(void)
     int MinimumDegrees, MaximumDegrees, degrees;
     // Declare variables
 
-    printf("Enter a value in degrees\n");
-    scanf("%i", &degrees);
+    printf("Enter the minimum value in degrees\n");
+    scanf("%i", &MinimumDegrees);
+    printf("Enter the maximum value in degrees\n");
+    scanf("%i", &MaximumDegrees);
     // Enter values
 
-    radians = ConvertToRadians(degrees);
+    printf("Degs  Rads   Sine   Cos    Tan");
 
-    FindTrigValues(radians, &Sine, &Cosine, &Tangent);
+    for(degrees = MinimumDegrees ; degrees <= MaximumDegrees ; degrees++)
+    {
+        radians = ConvertToRadians(degrees);
 
-    printf("\nRadians = %f\nSine = %f\nCosine = %f\nTangent = %f", radians, Sine, Cosine, Tangent);
+        FindTrigValues(radians, &Sine, &Cosine, &Tangent);
+        // Call the functions to get the values
+        // printf("%f", Sine);
+
+        printf("\n%i    %.3f  %.3f  %.3f  %.3f", degrees, radians, Sine, Cosine, Tangent);
+    }
         
 
     return 0;
