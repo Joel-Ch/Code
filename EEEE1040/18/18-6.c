@@ -11,10 +11,14 @@ int main (void)
     // Other variables needed
     int i, SizeOfArray, NumberOfBytes;
     float *pData;              // A pointer to hold the base address of out array
+    char FileName[50];
 
     // Ask for the size of the array and store result
 
-    printf("\nPlease enter the size of the array to dynamically allocate\n");
+    printf("\nPlease enter the file name\n");
+    scanf("%s", &FileName);
+
+    printf("Please enter the amount of numbers to read from the file\n");
     scanf ("%d", &SizeOfArray);
 
     // Use calloc with checking
@@ -28,7 +32,7 @@ int main (void)
     }
 
     // Try and open the binary "numbers.dat" (in the current directory) file for reading
-    fInput = fopen ("BinaryFileName.dat", "rb");
+    fInput = fopen (FileName, "rb");
 
     // Check we were able to open the file
     if ( fInput== NULL)
@@ -42,12 +46,12 @@ int main (void)
     NumberOfBytes = fread ( pData, sizeof(float), SizeOfArray , fInput);
 
     // Display the values read from the file on the screen
-    for ( i = 0 ; i < SizeOfArray ; i++)
+    for ( i = 0 ; i <= SizeOfArray ; i++)
     {
         printf ("Item %d of the array contains %f\n",i, pData[i]);
     }
 
-    printf("\n%i", NumberOfBytes);
+    printf("\nNumber of bytes used: %i", NumberOfBytes);
 
     // And close the file
     fclose (fInput);

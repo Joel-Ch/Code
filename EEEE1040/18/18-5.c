@@ -15,7 +15,7 @@ void PopulateTheArray ( int Size, float ArrayData[])
 {
     int i;      // Variable to use in our loop
 
-    for ( i = 0 ; i < Size ; i++)
+    for ( i = 0 ; i <= Size ; i++)
     {
         ArrayData[i] = ConvertToRadians(i); // Treat it like a normal array
     }
@@ -27,7 +27,7 @@ void DisplayTheArray ( int Size, float ArrayData[])
 {
     int i;      // Variable to use in our loop
 
-    for ( i = 0 ; i < Size ; i++)
+    for ( i = 0 ; i <= Size ; i++)
     {
         printf ("Item %d of the array contains %.3f\n", i, ArrayData[i]);
     }
@@ -55,7 +55,7 @@ int OutputToFile(int Size, float ArrayData[])
         return -1;
     }
 
-    for ( i = 0 ; i < Size ; i++)
+    for ( i = 0 ; i <= Size ; i++)
     {
         fprintf (FileWriter, "Item %d of the array contains %.3f\n", i, ArrayData[i]);
         fwrite (ArrayData, sizeof(float), Size, BinaryFileWriter);
