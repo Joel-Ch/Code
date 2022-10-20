@@ -99,15 +99,15 @@ int main(void)
 
     int iSizeForArray;
     float *pData; // A pointer to hold the base address of out array
-    char FileName[50] = {0}, BinaryFileName[50] = {0};
+    char FileName[50], BinaryFileName[50] = {0};
 
     // Ask for the size of the array and store result
 
     printf("Please enter the text file name (or write 0 to skip)\n");
-    scanf("%s", &FileName); // Enter text file name
+    scanf("%s", FileName); // Enter text file name
 
     printf("Please enter the binary file name (or write 0 to skip)\n");
-    scanf("%s", &BinaryFileName); // Enter binary file name
+    scanf("%s", BinaryFileName); // Enter binary file name
 
     printf("Please enter the amount of numbers to write to the file/s\n");
     scanf("%d", &iSizeForArray);
@@ -138,4 +138,5 @@ int main(void)
     return (0); // Exit indicating sucess
 }
 
-/* IMPORTANT PSA: This entire code functions perfectly if iSizeForArray<=2 but if not it can't open a file */
+/* IMPORTANT PSA: This entire code functions perfectly if iSizeForArray<=2 but if not it can't open a file 
+   IMPORTANT PSA Pt2: This code works in code::blocks, thereby meaning the problem is with this compiler. This is worrying*/
