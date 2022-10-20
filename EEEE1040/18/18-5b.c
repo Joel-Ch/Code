@@ -43,7 +43,7 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
 
     if (strchr(FileName, '0') == NULL) // check if the user wants a text file
     {
-        printf("opening text file...");
+        printf("opening text file '%s'", FileName);
         FileWriter = fopen(FileName, "w");
 
         if (FileWriter == NULL)
@@ -57,6 +57,7 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
 
         for (i = 0; i <= Size; i++)
         {
+            printf("\nwriting number %i", i+1);
             fprintf(FileWriter, "Item %d of the array contains %.3f\n", i, ArrayData[i]);
         }
 
@@ -66,7 +67,7 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
     }
     if (strchr(BinaryFileName, '0') == NULL) // check if the user wants a binary file
     {
-        printf("opening binary file");
+        printf("opening binary file '%s'", BinaryFileName);
         BinaryFileWriter = fopen(BinaryFileName, "wb");
 
         if (BinaryFileWriter == NULL)
@@ -80,6 +81,7 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
 
         for (i = 0; i <= Size; i++)
         {
+            printf("\nwriting number %i", i+1);
             fwrite(ArrayData, sizeof(float), Size, BinaryFileWriter);
         }
 
