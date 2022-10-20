@@ -30,7 +30,7 @@ void DisplayTheArray(int Size, float ArrayData[])
 
     for (i = 0; i <= Size; i++)
     {
-        printf("Item %d of the array contains %.3f\n", i, ArrayData[i]);
+        printf("Item %d of the array contains %.3f\n", i+1, ArrayData[i]);
     }
     return;
 }
@@ -43,49 +43,49 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
 
     if (strchr(FileName, '0') == NULL) // check if the user wants a text file
     {
-        printf("opening text file '%s'", FileName);
-        FileWriter = fopen(FileName, "w");
+        printf("Opening text file '%s'", FileName);
+        FileWriter = fopen("FileName.txt", "w");
 
         if (FileWriter == NULL)
         {
-            printf("\nthe file could not be opened for writing, exiting");
+            printf("\nThe file could not be opened for writing, exiting");
             return -1;
             // make sure the file is openable
         }
 
-        printf("\nwriting...");
+        printf("\nWriting...");
 
         for (i = 0; i <= Size; i++)
         {
-            printf("\nwriting number %i", i+1);
-            fprintf(FileWriter, "Item %d of the array contains %.3f\n", i, ArrayData[i]);
+            printf("\nWriting number %i", i+1);
+            fprintf(FileWriter, "Item %i of the array contains number %.3f\n", i, ArrayData[i]);
         }
 
-        printf("\nsuccessfully written data to text file");
+        printf("\nSuccessfully written data to text file\n\n");
 
         fclose(FileWriter);
     }
     if (strchr(BinaryFileName, '0') == NULL) // check if the user wants a binary file
     {
-        printf("opening binary file '%s'", BinaryFileName);
+        printf("Opening binary file '%s'", BinaryFileName);
         BinaryFileWriter = fopen(BinaryFileName, "wb");
 
         if (BinaryFileWriter == NULL)
         {
-            printf("\nthe binary file could not be opened for writing, exiting");
+            printf("\nThe binary file could not be opened for writing, exiting");
             return -1;
             // make sure the file is openable
         }
 
-        printf("\nwriting...");
+        printf("\nWriting...");
 
         for (i = 0; i <= Size; i++)
         {
-            printf("\nwriting number %i", i+1);
+            printf("\nWriting number %i", i+1);
             fwrite(ArrayData, sizeof(float), Size, BinaryFileWriter);
         }
 
-        printf("\nsuccessfully written data to binary file");
+        printf("\nSuccessfully written data to binary file\n\n");
 
         fclose(BinaryFileWriter);
     }
@@ -112,6 +112,8 @@ int main(void)
     printf("Please enter the amount of numbers to write to the file/s\n");
     scanf("%d", &iSizeForArray);
 
+    iSizeForArray -= 1;
+
     // Use calloc with checking
     pData = calloc(iSizeForArray, sizeof(int));
 
@@ -135,3 +137,5 @@ int main(void)
 
     return (0); // Exit indicating sucess
 }
+
+/* IMPORTANT PSA: This entire code functions perfectly if iSizeForArray<=2 but if not it can't open a file */

@@ -102,5 +102,7 @@ int main (void)
 
     free (pData);	    // Free up the memory before exiting
 
+    printf("Success!");
+
     return (0);     // Exit indicating sucess
 }

@@ -32,6 +32,7 @@ int main (void)
     }
 
     // Try and open the binary "numbers.dat" (in the current directory) file for reading
+    printf("Opening file '%s'\n", FileName);
     fInput = fopen (FileName, "rb");
 
     // Check we were able to open the file
@@ -46,7 +47,7 @@ int main (void)
     NumberOfBytes = fread ( pData, sizeof(float), SizeOfArray , fInput);
 
     // Display the values read from the file on the screen
-    for ( i = 0 ; i <= SizeOfArray ; i++)
+    for ( i = 0 ; i < SizeOfArray ; i++)
     {
         printf ("Item %d of the array contains %f\n",i, pData[i]);
     }
