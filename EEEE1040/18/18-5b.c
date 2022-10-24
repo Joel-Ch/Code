@@ -7,7 +7,7 @@ float ConvertToRadians(int d)
 {
     // Calculate  \& return value
     float Result;
-    Result = ((3.14159265 * d) / 180);
+    Result = ((3.14159265 * d)/180);
     return (Result);
 }
 
@@ -44,7 +44,7 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
     if (strchr(FileName, '0') == NULL) // check if the user wants a text file
     {
         printf("Opening text file '%s'", FileName);
-        FileWriter = fopen("FileName.txt", "w");
+        FileWriter = fopen(FileName, "w");
 
         if (FileWriter == NULL)
         {
