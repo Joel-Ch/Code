@@ -1,2 +1,11 @@
 Item 0 of the array contains number 0.000
 Item 1 of the array contains number 0.017
+Item 2 of the array contains number 0.035
+Item 3 of the array contains number 0.052
+Item 4 of the array contains number 0.070
+Item 5 of the array contains number 0.087
+Item 6 of the array contains number 0.105
+Item 7 of the array contains number 0.122
+Item 8 of the array contains number 0.140
+Item 9 of the array contains number 0.157
+Item 10 of the array contains number -4.735

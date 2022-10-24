@@ -55,7 +55,10 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
 
         printf("\nWriting...");
 
-        for (i = 0; i <= Size; i++)
+        int Sizes = Size;
+        // Don't question it, it just works
+
+        for (i = 0; i <= Sizes; i++)
         {
             printf("\nWriting number %i", i+1);
             fprintf(FileWriter, "Item %i of the array contains number %.3f\n", i, ArrayData[i]);
@@ -139,4 +142,5 @@ int main(void)
 }
 
 /* IMPORTANT PSA: This entire code functions perfectly if iSizeForArray<=2 but if not it can't open a file 
-   IMPORTANT PSA Pt2: This code works in code::blocks, thereby meaning the problem is with this compiler. This is worrying*/
+   IMPORTANT PSA Pt2: This code works in code::blocks, thereby meaning the problem is with this compiler. This is worrying
+   The above issues are fixed by the code on line 58 for god knows what reason (probably some pointer tomfoolery)*/
