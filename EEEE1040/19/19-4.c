@@ -9,12 +9,13 @@ struct PersonalDetails
 
 void DisplayStruct(struct PersonalDetails Details)
 {
+    // writes out the structure
     printf("Hello %s %s, you are %i and were born in %i\n", Details.forename, Details.surname, Details.age, Details.year_of_birth);
 }
 
 int ReadFromFile(struct PersonalDetails Details)
 {
-    // code here
+
     printf("Reading from file...\n");
 
     FILE *FileReader;
@@ -26,6 +27,7 @@ int ReadFromFile(struct PersonalDetails Details)
     {
         printf("\nThe file could not be opened for reading, exiting");
         return -1;
+        // check if its 
     }
 
     fread(&Details, sizeof(struct PersonalDetails), 1, FileReader);
