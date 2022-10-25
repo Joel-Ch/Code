@@ -13,7 +13,7 @@ void DisplayStruct(struct PersonalDetails Details)
     printf("Hello %s %s, you are %i and were born in %i\n", Details.forename, Details.surname, Details.age, Details.year_of_birth);
 }
 
-int ReadFromFile(struct PersonalDetails Details)
+void ReadFromFile(struct PersonalDetails Details)
 {
 
     printf("Reading from file...\n");
@@ -36,10 +36,10 @@ int ReadFromFile(struct PersonalDetails Details)
 
     fclose(FileReader);
 
-    return 0;
+    return;
 }
 
-int WriteToFile(struct PersonalDetails Details)
+void WriteToFile(struct PersonalDetails Details)
 {
     printf("Writing to file...\n");
 
@@ -66,10 +66,10 @@ int WriteToFile(struct PersonalDetails Details)
 
     fclose(FileWriter);
 
-    return 0;
+    return;
 }
 
-int main(void)
+void main(void)
 {
     struct PersonalDetails Details;
     int chooser;
@@ -99,5 +99,5 @@ int main(void)
 
     printf("completed");
 
-    return 0;
+    return;
 }
