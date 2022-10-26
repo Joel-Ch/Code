@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define DEBUG 1
+// #define DEBUG 1
 
 
 struct PersonalDetails
@@ -20,7 +20,7 @@ int ReadFromFile(struct PersonalDetails Details)
 {
 
     #ifdef DEBUG
-        printf("\n_Reading from file...\n");
+        printf("_Reading from file...\n");
     #endif
 
     FILE *FileReader;
@@ -41,13 +41,15 @@ int ReadFromFile(struct PersonalDetails Details)
 
     fclose(FileReader);
 
+    printf("Completed");
+
     return 0;
 }
 
 int WriteToFile(struct PersonalDetails Details)
 {
     #ifdef DEBUG
-        printf("\n_Writing to file...\n");
+        printf("_Writing to file...\n");
     #endif
 
     printf("Please enter your first name\n");
@@ -73,6 +75,8 @@ int WriteToFile(struct PersonalDetails Details)
 
     fclose(FileWriter);
 
+    printf("Completed");
+
     return 0;
 }
 
@@ -81,7 +85,7 @@ int main(void)
     struct PersonalDetails Details;
     int chooser;
 
-    printf("Choose whether to read (1), write(2) or cancel(anything else)\n");
+    printf("Choose whether to read (1), write (2) or cancel (anything else)\n");
     scanf("%i", &chooser);
 
     switch (chooser)
@@ -99,12 +103,10 @@ int main(void)
         break;
 
     default:
-        printf("Cancelling");
+        printf("Cancelling\n");
         return 0;
         break;
     }
-
-    printf("completed");
 
     return 0;
 }
