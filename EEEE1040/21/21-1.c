@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
   sscanf(argv[1],"%s",name);
   sscanf(argv[2],"%d",&age);
 
+
   /* And display for all to see */ 
   printf ("\nHello %s, you are %d ",name,age);
   
