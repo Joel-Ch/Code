@@ -17,11 +17,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.4" y="3.2"/>
-        <point x="5.9" y="4.4"/>
+        <point x="4.4" y="3.3"/>
+        <point x="5.9" y="4.500000000000001"/>
       </controlPoints>
-      <firstPoint x="4.4" y="3.2"/>
-      <secondPoint x="5.9" y="4.4"/>
+      <firstPoint x="4.4" y="3.3"/>
+      <secondPoint x="5.9" y="4.500000000000001"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -118,9 +118,9 @@
       <name>Trace5</name>
       <alpha>127</alpha>
       <points>
-        <point x="4.9" y="3.8"/>
-        <point x="4.9" y="3.6"/>
-        <point x="4.9" y="3.7"/>
+        <point x="5.000000000000001" y="3.8"/>
+        <point x="5.000000000000001" y="3.6"/>
+        <point x="5.000000000000001" y="3.7"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -190,6 +190,26 @@
       <borderColor hex="000000"/>
       <labelColor hex="000000"/>
       <leadColor hex="00ffff"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <thickness value="1.0" unit="mm"/>
+      <layer>_1</layer>
+    </diylc.connectivity.CopperTrace>
+    <diylc.connectivity.CopperTrace>
+      <name>Trace7</name>
+      <alpha>127</alpha>
+      <points>
+        <point x="5.6" y="3.9"/>
+        <point x="5.6" y="3.8"/>
+        <point x="5.6" y="3.85"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="00ff00"/>
       <display>NAME</display>
       <flipStanding>false</flipStanding>
       <labelOriantation>Directional</labelOriantation>
@@ -335,9 +355,9 @@
       <length value="0.5" unit="in"/>
       <width value="0.125" unit="in"/>
       <points>
-        <point x="5.0" y="3.6"/>
-        <point x="5.0" y="3.4"/>
-        <point x="5.0" y="3.5"/>
+        <point x="4.7" y="3.6"/>
+        <point x="4.7" y="3.4"/>
+        <point x="4.7" y="3.5"/>
       </points>
       <bodyColor hex="82cffd"/>
       <borderColor hex="5b90b1"/>
@@ -380,6 +400,60 @@
         <point x="6.8" y="4.6"/>
       </controlPoints2>
       <color hex="000000"/>
+      <pointCount>FOUR</pointCount>
+      <style>SOLID</style>
+      <smooth>true</smooth>
+      <lastUpdatePointIndex>-1</lastUpdatePointIndex>
+      <gauge>_22</gauge>
+      <striped>false</striped>
+      <stripeColor hex="ffff00"/>
+    </diylc.connectivity.HookupWire>
+    <diylc.connectivity.HookupWire>
+      <name>W3</name>
+      <alpha>127</alpha>
+      <controlPoints2>
+        <point x="4.5" y="3.9"/>
+        <point x="4.5" y="4.8"/>
+        <point x="4.3" y="4.8"/>
+        <point x="3.8" y="4.8"/>
+      </controlPoints2>
+      <color hex="0000ff"/>
+      <pointCount>FOUR</pointCount>
+      <style>SOLID</style>
+      <smooth>true</smooth>
+      <lastUpdatePointIndex>-1</lastUpdatePointIndex>
+      <gauge>_22</gauge>
+      <striped>false</striped>
+      <stripeColor hex="ffff00"/>
+    </diylc.connectivity.HookupWire>
+    <diylc.connectivity.HookupWire>
+      <name>W4</name>
+      <alpha>127</alpha>
+      <controlPoints2>
+        <point x="4.5" y="3.8"/>
+        <point x="3.8" y="3.6"/>
+        <point x="3.8" y="3.9"/>
+        <point x="3.8" y="4.4"/>
+      </controlPoints2>
+      <color hex="cc00ff"/>
+      <pointCount>FOUR</pointCount>
+      <style>SOLID</style>
+      <smooth>true</smooth>
+      <lastUpdatePointIndex>-1</lastUpdatePointIndex>
+      <gauge>_22</gauge>
+      <striped>false</striped>
+      <stripeColor hex="ffff00"/>
+    </diylc.connectivity.HookupWire>
+    <diylc.connectivity.HookupWire>
+      <name>W5</name>
+      <alpha>127</alpha>
+      <controlPoints2>
+        <point x="5.7" y="3.8"/>
+        <point x="6.1" y="3.8"/>
+        <point x="6.1" y="4.8"/>
+        <point x="6.5" y="4.3"/>
+      </controlPoints2>
+      <color hex="00ffff"/>
       <pointCount>FOUR</pointCount>
       <style>SOLID</style>
       <smooth>true</smooth>
