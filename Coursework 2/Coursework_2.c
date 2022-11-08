@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 
 
 // to do: 
@@ -25,22 +26,18 @@ struct Values
 };
 
 // check that the inputs are valid
-float inputValue()
+double inputValue()
 {
-    float value;
-
-    // check if scanf returned a numeric value
-    int scanfCheck;
+    double value;
 
     while (1)
     {
-        scanfCheck = scanf("%f", &value);
-        // this doesnt work!
 
         // check if numeric
-        if (scanfCheck != 1)
+        if (scanf("%lf", &value) != 1)
         {
             printf("error: value not numeric\n");
+            printf("%lf", value);
         }
 
         // check if too small
