@@ -8,17 +8,25 @@
 // structure for storing all the numbers in
 struct Values
 {
+    // delta value
     float r1;
+    // delta value
     float r2;
+    // delta value
     float r3;
+    // star value
     float ra;
+    // star value
     float rb;
+    // star value
     float rc;
+    // chooses whether to convert to star or delta
     int functionChooser;
 };
 
 // check that the inputs are valid
-float inputValue(){
+float inputValue()
+{
     float value;
 
     // check if scanf returned a numeric value
@@ -90,9 +98,10 @@ void conversion(struct Values values)
 }
 
 
-void main() {
+void main()
+{
 
-    // call the struct
+    // structure containing everything
     struct Values values;
 
     while (1)
@@ -140,10 +149,5 @@ void main() {
             printf("Please enter a valid input\n");
             break;
         }
-
-
     }
-    
-    
-    
 }
