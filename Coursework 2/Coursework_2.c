@@ -3,8 +3,7 @@
 
 
 // to do: 
-// add error checking
-// understand task Cb. (^ These might be the same task)
+// why is it looping endlessly
 
 // structure for storing all the numbers in
 struct Values
@@ -25,7 +24,7 @@ float inputValue(){
     // check if scanf returned a numeric value
     int scanfCheck;
 
-    while (true)
+    while (1)
     {
         scanfCheck = scanf("%f", &value);
         // this doesnt work!
@@ -33,20 +32,19 @@ float inputValue(){
         // check if numeric
         if (scanfCheck != 1)
         {
-            printf("\nerror: value not numeric");
+            printf("error: value not numeric\n");
         }
 
         // check if too small
         else if (value < 1000)
         {
-            printf("\nerror: value too low");
+            printf("error: value too low\n");
         }
 
         // check if too big
         else if (value > 1000000)
         {
-            printf("\nerror: value too high");
-            return 0;
+            printf("error: value too high\n");
         }
 
         // success, returns to main code
@@ -97,50 +95,55 @@ void main() {
     // call the struct
     struct Values values;
 
-    // choose mode
-    printf("Enter 1 to convert to star, 2 to convert to delta or 0 to exit\n");
-    scanf("%i", &values.functionChooser);
-
-    switch (values.functionChooser)
+    while (1)
     {
-    case 0:
-        // entered 0
-        printf("exiting");
-        return;
-        break;
 
-    case 1:
-        // converting to star
-        printf("Please enter values as required:\n");
-        printf("Ra:");
-        values.ra = inputValue();
-        printf("Rb:");
-        values.rb = inputValue();
-        printf("Rc:");
-        values.rc = inputValue();
+        // choose mode
+        printf("Enter 1 to convert to star, 2 to convert to delta or 0 to exit\n");
+        scanf("%i", &values.functionChooser);
 
-        conversion(values);
-        break;
+        switch (values.functionChooser)
+        {
+        case 0:
+            // entered 0
+            printf("exiting");
+            return;
+            break;
 
-    case 2:
-        // converting to delta
-        printf("Please enter values as required:\n");
-        printf("R1:");
-        scanf("%f", &values.r1);
-        printf("R2:");
-        scanf("%f", &values.r2);
-        printf("R3:");
-        scanf("%f", &values.r3);
+        case 1:
+            // converting to star
+            printf("Please enter values as required:\n");
+            printf("Ra:");
+            values.ra = inputValue();
+            printf("Rb:");
+            values.rb = inputValue();
+            printf("Rc:");
+            values.rc = inputValue();
 
-        conversion(values);
-        break;
+            conversion(values);
+            break;
 
-    default:
-        break;
+        case 2:
+            // converting to delta
+            printf("Please enter values as required:\n");
+            printf("R1:");
+            values.r1 = inputValue();
+            printf("Rb:");
+            values.r2 = inputValue();
+            printf("Rc:");
+            values.r3 = inputValue();
+
+            conversion(values);
+            break;
+
+        default:
+            printf("Please enter a valid input\n");
+            break;
+        }
+
+
     }
     
-    printf("Running again:\n");
     
-    // repeats until 0 is entered
-    main();
+    
 }
