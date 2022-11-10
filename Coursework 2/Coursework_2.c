@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
+
 
 
 // to do: 
@@ -9,7 +9,7 @@
 // structure for storing all the numbers in
 struct Values
 {
-    // fisrt input
+    // first input
     float input1;
     // second input
     float input2;
