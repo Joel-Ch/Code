@@ -9,18 +9,18 @@
 // structure for storing all the numbers in
 struct Values
 {
-    // delta value
-    float r1;
-    // delta value
-    float r2;
-    // delta value
-    float r3;
-    // star value
-    float ra;
-    // star value
-    float rb;
-    // star value
-    float rc;
+    // fisrt input
+    float input1;
+    // second input
+    float input2;
+    // third input
+    float input3;
+    // first output
+    float output1;
+    // second output
+    float output2;
+    // third output
+    float output3;
     // chooses whether to convert to star or delta
     int functionChooser;
 };
@@ -28,26 +28,26 @@ struct Values
 // check that the inputs are valid
 double inputValue()
 {
-    double value;
+    // input as a character (to stop scanf doing weird stuff)
+    char value[20];
 
     while (1)
     {
-
+        scanf("%s", &value);
         // check if numeric
-        if (scanf("%lf", &value) != 1)
+        if (atof(value) == 0)
         {
-            printf("error: value not numeric\n");
-            printf("%lf", value);
+            printf("error: invalid input\n");
         }
 
         // check if too small
-        else if (value < 1000)
+        else if (atof(value) < 1000)
         {
             printf("error: value too low\n");
         }
 
         // check if too big
-        else if (value > 1000000)
+        else if (atof(value) > 1000000)
         {
             printf("error: value too high\n");
         }
@@ -55,43 +55,62 @@ double inputValue()
         // success, returns to main code
         else
         {
-            return (value);
+            return (atof(value));
         }
         
     }
 
 }
 
-void conversion(struct Values values)
+void conversion(struct Values *values)
 {
     // variable to make calculations quicker
     float topOfDelta, bottomOfStar;
 
-    switch (values.functionChooser)
+    // checks conversion type
+    switch (values->functionChooser)
     {
     case 1:
         // converting to star
-        bottomOfStar = (values.ra + values.rb + values.rc);
-        values.r1 = ((values.ra * values.rb) / bottomOfStar);
-        values.r2 = ((values.ra * values.rc) / bottomOfStar);
-        values.r3 = ((values.rb * values.rc) / bottomOfStar);
+        bottomOfStar = (values->input1 + values->input2 + values->input3);
+        values->output1 = ((values->input1 * values->input2) / bottomOfStar);
+        values->output2 = ((values->input1 * values->input3) / bottomOfStar);
+        values->output3 = ((values->input2 * values->input3) / bottomOfStar);
         break;
     case 2:
         // converting to delta
-        topOfDelta = (values.r1 * values.r2) + (values.r2 * values.r3) + (values.r1 * values.r3);
-        values.ra = (topOfDelta / (values.r3));
-        values.rb = (topOfDelta / (values.r2));
-        values.rc = (topOfDelta / (values.r1));
+        topOfDelta = (values->input1 * values->input2) + (values->input2 * values->input3) + (values->input1 * values->input3);
+        values->output1 = (topOfDelta / (values->input3));
+        values->output2 = (topOfDelta / (values->input2));
+        values->output3 = (topOfDelta / (values->input1));
         break;
 
     default:
         break;
     }
-    
-    // print out the results
-    printf("Results:\nR1 = %.2f\nR2 = %.2f\nR3 = %.2f\nRa = %.2f\nRb = %.2f\nRc = %.2f\n", values.r1, values.r2, values.r3, values.ra, values.rb, values.rc);
-    
+
     return;
+}
+
+void displayValues(struct Values values)
+{
+    // switch case to add the correct header
+    switch (values.functionChooser)
+    {
+    case 1:
+        printf("Delta       Star\n");
+        break;
+    
+    case 2:
+        printf("Star        Delta\n");
+        break;
+    default:
+        return;
+        break;
+    }
+
+    // print out a table of results
+    printf("%.2f      %.2f\n%.2f      %.2f\n%.2f      %.2f\n\n", values.input1, values.output1, values.input2, values.output2, values.input3, values.output3);
 }
 
 
@@ -101,6 +120,7 @@ void main()
     // structure containing everything
     struct Values values;
 
+    // loop forever (until the code is exited)
     while (1)
     {
 
@@ -108,6 +128,7 @@ void main()
         printf("Enter 1 to convert to star, 2 to convert to delta or 0 to exit\n");
         scanf("%i", &values.functionChooser);
 
+        // check for valid input
         switch (values.functionChooser)
         {
         case 0:
@@ -115,34 +136,25 @@ void main()
             printf("exiting");
             return;
             break;
-
         case 1:
-            // converting to star
-            printf("Please enter values as required:\n");
-            printf("Ra:");
-            values.ra = inputValue();
-            printf("Rb:");
-            values.rb = inputValue();
-            printf("Rc:");
-            values.rc = inputValue();
-
-            conversion(values);
-            break;
-
         case 2:
-            // converting to delta
             printf("Please enter values as required:\n");
-            printf("R1:");
-            values.r1 = inputValue();
-            printf("Rb:");
-            values.r2 = inputValue();
-            printf("Rc:");
-            values.r3 = inputValue();
+            printf("1: ");
+            values.input1 = inputValue();
+            printf("2: ");
+            values.input2 = inputValue();
+            printf("3: ");
+            values.input3 = inputValue();
 
-            conversion(values);
+            // builds the outputs
+            conversion(&values);
+
+            // displays the inputs and outputs
+            displayValues(values);
             break;
 
         default:
+            // input wasn't 0,1 or 2
             printf("Please enter a valid input\n");
             break;
         }
