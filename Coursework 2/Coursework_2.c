@@ -1,11 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
-
-// to do: 
-// why is it looping endlessly
-
 // structure for storing all the numbers in
 struct Values
 {
@@ -112,7 +107,6 @@ void displayValues(struct Values values)
     // print out a table of results
     printf("%.2f      %.2f\n%.2f      %.2f\n%.2f      %.2f\n\n", values.input1, values.output1, values.input2, values.output2, values.input3, values.output3);
 }
-
 
 void main()
 {
