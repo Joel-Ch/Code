@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void conversion(float *output1, float *output2, float *output3,float input1,float input2,float input3, int functionChooser)
+int DeltaStarConversion(float *output1, float *output2, float *output3,float input1,float input2,float input3, int functionChooser)
 {
     // variables to make calculations quicker
     float topOfDelta, bottomOfStar;
@@ -25,4 +25,5 @@ void conversion(float *output1, float *output2, float *output3,float input1,floa
     default:
         break;
     }
+    return 0;
 }
