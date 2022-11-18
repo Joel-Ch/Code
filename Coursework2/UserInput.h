@@ -5,30 +5,33 @@ float inputValue(char *prompt, float minimum, float maximum)
 {
     // input as a float
     float value;
-    int inputAmount;
     while (1)
     {
-        puts(prompt);
+        // clear buffer
         fflush(stdin);
-        inputAmount = scanf("%f", &value);
+        // get user input
+        puts(prompt);
 
-        if (inputAmount != 1)
-            printf("error: value isn't a number\n");
+        // scanf is embedded within the if statement to check that the output is numeric 
+        // (the return value of scanf is 1 if the input is numeric or 0 if it's not)
+        if (scanf("%f", &value) != 1)
+            puts("error: value isn't a number");
 
         // check if too small
         else if (value < minimum)
         {
-            printf("error: value too low\n");
+            puts("error: value too low");
         }
 
         // check if too big
         else if (value > maximum)
         {
-            printf("error: value too high\n");
+            puts("error: value too high");
         }
+        // success! return the user input to the main code
         else
         {
-            printf("value entered\n");
+            printf("sucessfuly entered value %.2f\n", value);
             return value;
         }
     }

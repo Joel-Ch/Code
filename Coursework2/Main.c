@@ -9,10 +9,10 @@ int displayOutputs(float in1, float in2, float in3, float out1, float out2, floa
     switch (chooser)
     {
     case 1:
-        printf("   Delta      Star\n");
+        puts("   Delta      Star");
         break;
     case 2:
-        printf("   Star       Delta\n");
+        puts("   Star       Delta");
         break;
     }
 
@@ -24,50 +24,61 @@ int displayOutputs(float in1, float in2, float in3, float out1, float out2, floa
 int main()
 {
     // convert to star(1) or delta(2)
-    int functionChooser;
+    int starOrDelta;
     // inputs and outputs of the converter
-    float input1, input2, input3, output1, output2, output3, minimumValue = 1000, maximumValue = 1000000;
+    float input1, input2, input3, output1, output2, output3;
+    // set maximum and minimum values
+    float minimumValue = 1000, maximumValue = 1000000;
+
+    // ensures the minimum value is lower than the maximum (just in case)
+    if (minimumValue > maximumValue)
+    {
+        puts("error: maximum value is less than minimum value, exiting");
+        return 0;
+    }
 
     // loop forever (until the code is exited)
     while (1)
     {
-        // choose mode
-        printf("Enter 1 to convert to star, 2 to convert to delta or 0 to exit\n");
+        // clear the input buffer
         fflush(stdin);
-        scanf("%i", &functionChooser);
+
+        // choose mode
+        puts("Enter 1 to convert to star, 2 to convert to delta or 0 to exit");
+        scanf("%i", &starOrDelta);
 
         // check for valid input
-        switch (functionChooser)
+        switch (starOrDelta)
         {
         case 0:
             // entered 0
-            printf("exiting");
+            puts("exiting");
             return 0;
             break;
         case 1:
             // case 1 and 2 are the same, so there is no break in between them
         case 2:
-            printf("Please enter values as required:\n");
-            input1 = inputValue("1: ", minimumValue, maximumValue);
+            puts("Please enter values as required:");
             // calling the inputValue function to ensure the value is usable
+            input1 = inputValue("1: ", minimumValue, maximumValue);
             input2 = inputValue("2: ", minimumValue, maximumValue);
             input3 = inputValue("3: ", minimumValue, maximumValue);
 
             // calls conversion function to convert between the two networks
-            int conversionCheck = DeltaStarConversion(&output1, &output2, &output3, input1, input2, input3, functionChooser);
-            // checks the conversion worked
+            int conversionCheck = DeltaStarConversion(&output1, &output2, &output3, input1, input2, input3, starOrDelta);
+            // checks the conversion function worked
             if (conversionCheck != 0)
             {
-                printf("error converting values, exiting");
+                puts("error converting values, exiting");
                 return 0;
             }
             
             // calls display function to display the outputs
-            int displayCheck = displayOutputs(input1, input2, input3, output1, output2, output3, functionChooser);
-            // checks the displaying worked
+            int displayCheck = displayOutputs(input1, input2, input3, output1, output2, output3, starOrDelta);
+            // checks the display function worked
             if (displayCheck != 0)
             {
-                printf("error displaying values, exiting");
+                puts("error displaying values, exiting");
                 return 0;
             }
             
@@ -75,7 +86,7 @@ int main()
 
         default:
             // input wasn't 0,1 or 2
-            printf("Please enter a valid input\n");
+            puts("Please enter a valid input");
             break;
         }
     }
