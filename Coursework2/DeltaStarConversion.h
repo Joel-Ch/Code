@@ -7,22 +7,18 @@ int DeltaStarConversion(float *output1, float *output2, float *output3,float inp
     {
     // converting to star
     case 1:
-        // variable to make calculation easier
-        float bottomOfStar = (input1 + input2 + input3);
         // doing the calculations
-        *output1 = ((input1 * input2) / bottomOfStar);
-        *output2 = ((input1 * input3) / bottomOfStar);
-        *output3 = ((input2 * input3) / bottomOfStar);
+        *output1 = ((input1 * input2) / (input1 + input2 + input3));
+        *output2 = ((input1 * input3) / (input1 + input2 + input3));
+        *output3 = ((input2 * input3) / (input1 + input2 + input3));
         break;
 
     // converting to delta
     case 2:
-        // variable to make calculation easier
-        float topOfDelta = (input1 * input2) + (input2 * input3) + (input1 * input3);
         // doing the calculations
-        *output1 = (topOfDelta / (input3));
-        *output2 = (topOfDelta / (input2));
-        *output3 = (topOfDelta / (input1));
+        *output1 = (((input1 * input2) + (input2 * input3) + (input1 * input3)) / (input3));
+        *output2 = (((input1 * input2) + (input2 * input3) + (input1 * input3)) / (input2));
+        *output3 = (((input1 * input2) + (input2 * input3) + (input1 * input3)) / (input1));
         break;
     default:
         puts("error, invalid function chosen");

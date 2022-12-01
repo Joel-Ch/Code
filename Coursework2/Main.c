@@ -45,7 +45,7 @@ int main()
 
         // choose mode
         puts("Enter 1 to convert to star, 2 to convert to delta or 0 to exit");
-        scanf("%i", &starOrDelta);
+        scanf("%d", &starOrDelta);
 
         // check for valid input
         switch (starOrDelta)
@@ -64,19 +64,14 @@ int main()
             input2 = inputValue("2: ", minimumValue, maximumValue);
             input3 = inputValue("3: ", minimumValue, maximumValue);
 
-            // calls conversion function to convert between the two networks
-            int conversionCheck = DeltaStarConversion(&output1, &output2, &output3, input1, input2, input3, starOrDelta);
-            // checks the conversion function worked
-            if (conversionCheck != 0)
+                // checks the conversion function worked
+                if (DeltaStarConversion(&output1, &output2, &output3, input1, input2, input3, starOrDelta) != 0)
             {
                 puts("error converting values, exiting");
                 return 0;
             }
-            
-            // calls display function to display the outputs
-            int displayCheck = displayOutputs(input1, input2, input3, output1, output2, output3, starOrDelta);
             // checks the display function worked
-            if (displayCheck != 0)
+            if (displayOutputs(input1, input2, input3, output1, output2, output3, starOrDelta) != 0)
             {
                 puts("error displaying values, exiting");
                 return 0;
