@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float inputValue(char *prompt, float minimum, float maximum)
+float InputValue(char *prompt, float minimum, float maximum)
 {
     // input as a float
     float value;

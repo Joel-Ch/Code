@@ -46,6 +46,7 @@ int main()
         // choose mode
         puts("Enter 1 to convert to star, 2 to convert to delta or 0 to exit");
         scanf("%d", &starOrDelta);
+        printf("You entered %d", starOrDelta);
 
         // check for valid input
         switch (starOrDelta)
@@ -60,12 +61,12 @@ int main()
         case 2:
             puts("Please enter values as required:");
             // calling the inputValue function to ensure the value is usable
-            input1 = inputValue("1: ", minimumValue, maximumValue);
-            input2 = inputValue("2: ", minimumValue, maximumValue);
-            input3 = inputValue("3: ", minimumValue, maximumValue);
+            input1 = InputValue("1: ", minimumValue, maximumValue);
+            input2 = InputValue("2: ", minimumValue, maximumValue);
+            input3 = InputValue("3: ", minimumValue, maximumValue);
 
-                // checks the conversion function worked
-                if (DeltaStarConversion(&output1, &output2, &output3, input1, input2, input3, starOrDelta) != 0)
+            // checks the conversion function worked
+            if (DeltaStarConversion(&output1, &output2, &output3, input1, input2, input3, starOrDelta) != 0)
             {
                 puts("error converting values, exiting");
                 return 0;
