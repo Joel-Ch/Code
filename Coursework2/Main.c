@@ -24,11 +24,13 @@ int displayOutputs(float in1, float in2, float in3, float out1, float out2, floa
 int main()
 {
     // convert to star(1) or delta(2)
-    int starOrDelta;
-    // inputs and outputs of the converter
-    float input1, input2, input3, output1, output2, output3;
+    unsigned int starOrDelta;
+    // inputs of the converter
+    register float input1, input2, input3;
+    // outputs of the converter
+    float output1, output2, output3;
     // set maximum and minimum values
-    float minimumValue = 1000, maximumValue = 1000000;
+    register float minimumValue = 1000, maximumValue = 1000000;
 
     // ensures the minimum value is lower than the maximum (just in case)
     if (minimumValue > maximumValue)
@@ -36,6 +38,8 @@ int main()
         puts("error: maximum value is less than minimum value, exiting");
         return 0;
     }
+
+    puts("Welcome to this resistive network converter, please follow the instructions onscreen\n");
 
     // loop forever (until the code is exited)
     while (1)
@@ -45,8 +49,12 @@ int main()
 
         // choose mode
         puts("Enter 1 to convert to star, 2 to convert to delta or 0 to exit");
-        scanf("%d", &starOrDelta);
-        printf("You entered %d", starOrDelta);
+
+        // checks if input is a number
+        if (scanf("%d", &starOrDelta) != 1)
+            starOrDelta = 3;
+        // this means that the switch case recognises it's an invalid input and doesn't try to use it
+        // 3 was used here as it isn't 0,1 or 2 but any number except those would work
 
         // check for valid input
         switch (starOrDelta)
@@ -59,7 +67,7 @@ int main()
         case 1:
             // case 1 and 2 are the same, so there is no break in between them
         case 2:
-            puts("Please enter values as required:");
+            puts("please enter values as required:");
             // calling the inputValue function to ensure the value is usable
             input1 = InputValue("1: ", minimumValue, maximumValue);
             input2 = InputValue("2: ", minimumValue, maximumValue);
@@ -79,10 +87,10 @@ int main()
             }
             
             break;
-
         default:
             // input wasn't 0,1 or 2
-            puts("Please enter a valid input");
+            // if input wasn't numeric (and was given the value 3) this part of the code will run
+            puts("please enter a valid input");
             break;
         }
     }
