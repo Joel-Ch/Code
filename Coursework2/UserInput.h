@@ -31,7 +31,7 @@ float InputValue(char *prompt, float minimum, float maximum)
         // success! return the user input to the main code
         else
         {
-            printf("sucessfuly entered value %s%.2f\n", prompt, value);
+            printf("successfully entered value %s%.2f\n", prompt, value);
             return value;
         }
     }
