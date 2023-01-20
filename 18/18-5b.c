@@ -55,10 +55,8 @@ int OutputToFile(int Size, float ArrayData[], char *FileName, char *BinaryFileNa
 
         printf("\nWriting...");
 
-        int Sizes = Size;
-        // Don't question it, it just works
 
-        for (i = 0; i <= Sizes; i++)
+        for (i = 0; i <= Size; i++)
         {
             printf("\nWriting number %i", i+1);
             fprintf(FileWriter, "Item %i of the array contains number %.3f\n", i, ArrayData[i]);
@@ -101,7 +99,6 @@ int main(void)
 {
 
     int iSizeForArray;
-    float *pData; // A pointer to hold the base address of out array
     char FileName[50], BinaryFileName[50] = {0};
 
     // Ask for the size of the array and store result
@@ -118,7 +115,7 @@ int main(void)
     iSizeForArray -= 1;
 
     // Use calloc with checking
-    pData = calloc(iSizeForArray, sizeof(int));
+    float *pData = calloc(iSizeForArray, sizeof(int));
 
     // Check we got the memory
     if (pData == NULL)
